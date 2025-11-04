@@ -10,14 +10,13 @@
                     </a>
                 </div>
                <div class="hidden md:flex items-center space-x-10">
-                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition">Explore Xperts</a>
+                <a href="{{url('/')}}" class="text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
                 <a href="{{url('/about')}}" class="text-gray-700 hover:text-blue-600 font-medium transition">About Us</a>
-                <a href="{{url('/contactus')}}" class="text-gray-700 hover:text-blue-600 font-medium transition">Contact Us</a>
-                    <button class="px-6 py-2 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">
+                <a href="{{url('/contact')}}" class="text-gray-700 hover:text-blue-600 font-medium transition">Contact Us</a>
+                    {{-- <button class="px-6 py-2 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">
                         SIGNUP
-                    </button>
+                    </button> --}}
                 </div>
             </div>
         </div>
-    </nav>
+</nav>

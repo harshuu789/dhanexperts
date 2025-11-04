@@ -59,7 +59,7 @@
             <input type="email" placeholder="Email" class=" border border-gray-600 p-3 rounded focus:outline-none">
             <input type="text" placeholder="Mobile Number" class=" border border-gray-600 p-3 rounded focus:outline-none">
             <textarea rows="4" placeholder="Write Comments" class=" border border-gray-600 p-3 rounded focus:outline-none"></textarea>
-            <button class="bg-white  font-semibold py-2 px-6 rounded hover:bg-gray-200 transition">
+            <button class="px-8 py-3 bg-gray-500 text-white font-semibold rounded-xl shadow hover:bg-gray-700 transition">
                 Submit
             </button>
         </form>

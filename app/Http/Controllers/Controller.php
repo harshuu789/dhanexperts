@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Request;
 
 abstract class Controller
 {
@@ -16,7 +17,7 @@ abstract class Controller
         ]);
 
         Mail::send('emails.contact', $data, function($message) use ($data) {
-            $message->to('yourcompanyemail@example.com')
+            $message->to('dhanxpertsolutions@gmail.com')
                     ->subject('New Contact Form Message');
         });
 

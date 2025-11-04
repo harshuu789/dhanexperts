@@ -6,35 +6,35 @@
                     <h3 class="text-xl font-bold mb-6">Company</h3>
                     <ul class="space-y-4">
                         <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Wall Of Love</a></li>
+                        {{-- <li><a href="#" class="text-gray-400 hover:text-white transition">Wall Of Love</a></li> --}}
                     </ul>
                 </div>
 
                 <!-- Xperts -->
-                <div>
+                {{-- <div>
                     <h3 class="text-xl font-bold mb-6">Xperts</h3>
                     <ul class="space-y-4">
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Register as an Xpert</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Find an Xpert</a></li>
                     </ul>
-                </div>
+                </div> --}}
 
                 <!-- Resources -->
-                <div>
+                {{-- <div>
                     <h3 class="text-xl font-bold mb-6">Resources</h3>
                     <ul class="space-y-4">
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Podcasts & Videos</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">FAQs</a></li>
                     </ul>
-                </div>
+                </div> --}}
 
                 <!-- Support -->
                 <div>
                     <h3 class="text-xl font-bold mb-6">Support</h3>
                     <ul class="space-y-4">
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms and Conditions</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        {{-- <li><a href="#" class="text-gray-400 hover:text-white transition">Terms and Conditions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li> --}}
                     </ul>
                 </div>
             </div>
@@ -61,22 +61,12 @@
                 </div>
 
                 <!-- QR Code Download -->
-                <div class="flex justify-end">
-                    <div class="border-2 border-gray-700 rounded-2xl p-6 inline-flex items-center space-x-4">
-                        <div class="w-20 h-20 bg-white rounded-lg flex items-center justify-center">
-                            <div class="w-16 h-16 bg-gray-900"></div>
-                        </div>
-                        <div>
-                            <p class="text-xl font-bold">Download</p>
-                            <p class="text-xl font-bold">DhanXpert</p>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
 
             <!-- Copyright -->
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-400 text-sm">Copyright © 2025 DHAN EXPERTS SOLUTIONS LLP All rights reserved.</p>
+                <p class="text-gray-400 text-sm">Copyright © 2025 DHAN EXPERT SOLUTIONS LLP All rights reserved.</p>
             </div>
         </div>
     </footer>

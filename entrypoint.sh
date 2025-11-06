@@ -1,14 +1,17 @@
 #!/bin/sh
 
-# Copy .env.example to .env if missing
-if [ ! -f .env ]; then
-  cp .env.example .env
+# Do NOT create .env – Laravel will read environment variables directly
+
+# Generate key only if not set
+if [ -z "$APP_KEY" ]; then
+  echo "ERROR: APP_KEY is not set in Render Environment Variables"
+  exit 1
 fi
 
-# Generate key if missing
-php artisan key:generate --force
-
-# Create storage link
+# Link storage directory
 php artisan storage:link || true
+
+php artisan config:clear
+php artisan cache:clear
 
 exec "$@"

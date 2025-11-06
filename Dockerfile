@@ -20,6 +20,7 @@ COPY . .
 
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader
+RUN php artisan config:clear
 
 # Storage link and permission fix moved to entrypoint
 COPY ./entrypoint.sh /entrypoint.sh

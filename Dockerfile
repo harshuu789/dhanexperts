@@ -1,31 +1,36 @@
-FROM php:8.2-fpm
+FROM php:8.2-apache
 
-# Install system packages
+# Enable Apache Rewrite
+RUN a2enmod rewrite
+
+# Install system dependencies & Composer
 RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    curl \
-    libzip-dev \
-    libpng-dev
+    curl zip unzip git \
+    && curl -sS https://getcomposer.org/installer | php \
+        -- --install-dir=/usr/local/bin --filename=composer
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo pdo_mysql zip
+# Copy project source
+COPY . /var/www/html/
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
+# Set working directory
 WORKDIR /var/www/html
 
-COPY . .
+# Install required PHP extensions
+RUN docker-php-ext-install pdo pdo_mysql mbstring
 
-# Install dependencies
+# Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
-RUN php artisan config:clear
 
-# Storage link and permission fix moved to entrypoint
-COPY ./entrypoint.sh /entrypoint.sh
+# Set correct permissions
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Copy and allow entrypoint script to run
+COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+# Expose HTTP port
+EXPOSE 80
 
-CMD php artisan serve --host 0.0.0.0 --port $PORT
+# Start container with entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["apache2-foreground"]

@@ -8,8 +8,6 @@ fi
 
 # Optional: Storage link (ignore if exists)
 php artisan storage:link 2>/dev/null || true
-
-php artisan key:generate --force
 php artisan config:clear
 php artisan cache:clear
 php artisan config:cache

@@ -10,26 +10,25 @@ RUN sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf /e
 
 # Install system dependencies & composer
 RUN apt-get update && apt-get install -y \
-    curl zip unzip git \
+    curl zip unzip git libonig-dev \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copy project
 COPY . /var/www/html/
 
-# Set working directory
 WORKDIR /var/www/html
 
 # Install PHP extensions (NO MYSQL)
 RUN docker-php-ext-install pdo mbstring
 
-# Install dependencies
+# Install vendor dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Clear config
+# Clear caches
 RUN php artisan config:clear
 RUN php artisan cache:clear
 
-# Generate key only at container start (handled by entrypoint)
+# Add entrypoint script
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

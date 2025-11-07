@@ -1,14 +1,17 @@
 #!/bin/sh
 
+# Check APP_KEY
 if [ -z "$APP_KEY" ]; then
-  echo "ERROR: APP_KEY is not set in Render environment."
+  echo "ERROR: APP_KEY is not set."
   exit 1
 fi
 
-php artisan storage:link || true
+# Optional: Storage link (ignore if exists)
+php artisan storage:link 2>/dev/null || true
 
+php artisan key:generate --force
 php artisan config:clear
 php artisan cache:clear
 php artisan config:cache
 
-exec "$@"
+exec apache2-foreground

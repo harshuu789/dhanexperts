@@ -8,32 +8,26 @@ ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
-# Install system dependencies & composer
+# Install dependencies + composer + extensions
 RUN apt-get update && apt-get install -y \
     curl zip unzip git libonig-dev \
+    && docker-php-ext-install pdo mbstring \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copy project
 COPY . /var/www/html/
-
 WORKDIR /var/www/html
-
-# Install PHP extensions (NO MYSQL)
-RUN docker-php-ext-install pdo mbstring
 
 # Install vendor dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Clear caches
-RUN php artisan config:clear
-RUN php artisan cache:clear
-
-# Add entrypoint script
-COPY ./entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
-
 # Permissions
 RUN chown -R www-data:www-data storage bootstrap/cache
+
+# Copy entrypoint
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 80

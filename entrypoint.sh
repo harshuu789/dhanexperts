@@ -8,6 +8,7 @@ fi
 
 # Optional: Storage link (ignore if exists)
 php artisan storage:link 2>/dev/null || true
+chmod -R 775 storage
 php artisan config:clear
 php artisan cache:clear
 php artisan config:cache

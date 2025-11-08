@@ -12,5 +12,7 @@ chmod -R 775 storage
 php artisan config:clear
 php artisan cache:clear
 php artisan config:cache
+php artisan view:clear
+php artisan optimize:clear
 
 exec apache2-foreground

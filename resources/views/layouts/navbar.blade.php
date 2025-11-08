@@ -5,7 +5,7 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <a href="/" class="flex items-center space-x-10">
-                    <img src="{{ asset('images/dhanexpert.png') }}" alt="DhanXpert Logo" class="h-16 w-auto">
+                    <img src="{{ asset('images/dhanexpert.PNG') }}" alt="DhanXpert Logo" class="h-16 w-auto">
                 </a>
             </div>
 

@@ -5,7 +5,7 @@
             <div>
                 <h3 class="text-xl font-bold mb-6">Company</h3>
                 <ul class="space-y-4">
-                    <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                    <li><a href="{{url('/about')}}" class="text-gray-400 hover:text-white transition">About Us</a></li>
                     {{-- <li><a href="#" class="text-gray-400 hover:text-white transition">Wall Of Love</a></li> --}}
                 </ul>
             </div>
@@ -32,7 +32,7 @@
             <div>
                 <h3 class="text-xl font-bold mb-6">Support</h3>
                 <ul class="space-y-4">
-                    <li><a href="#" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    <li><a href="{{url('/contact')}}" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
                     {{-- <li><a href="#" class="text-gray-400 hover:text-white transition">Terms and Conditions</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li> --}}
                 </ul>
